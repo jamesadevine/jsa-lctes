@@ -1,0 +1,176 @@
+\documentclass[sigplan, screen]{acmart}
+
+%\settopmatter{printfolios=true,printccs=false,printacmref=false}
+%\settopmatter{printfolios=false,printccs=false,printacmref=false}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{enumitem}
+
+% URL PACKAGE HACK
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+\do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+\do\Y\do\Z}
+
+\newcommand{\MC}{MakeCode\ }
+\newcommand{\MCN}{MakeCode}
+\newcommand{\CO}{CODAL\ }
+\newcommand{\CON}{CODAL}
+\newcommand{\COLN}{codal}
+\newcommand{\UF}{UF2\ }
+\newcommand{\UFN}{UF2}
+\newcommand{\flameon}[1]{\emph{#1}}
+\def\dbhref#1#2{URL}
+%\def\dbhref#1#2{\href{#1}{#2}}
+\def\dburl#1{URL}
+%\def\dburl#1{\url{#1}}
+
+\setlist[itemize]{leftmargin=*}
+\lstset{ %
+language=C++,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)}          % if you want to add a comment within your code
+}
+
+
+%% Bibliography style
+\bibliographystyle{ACM-Reference-Format}
+
+%% Some recommended packages.
+\usepackage{booktabs}   %% For formal tables:
+                        %% http://ctan.org/pkg/booktabs
+\usepackage{subcaption} %% For complex figures with subfigures/subcaptions
+                        %% http://ctan.org/pkg/subcaption
+\usepackage{balance}
+\usepackage{courier}
+
+\begin{document}
+
+
+%% Title information
+\title[\MC and \CON: Intuitive and Efficient Embedded...]{\MC and \CON: Intuitive and Efficient Embedded Systems Programming for Education}         %% [Short Title] is optional;
+                                        %% when present, will be used in
+                                        %% header instead of Full Title.
+
+%% Copyright information
+%% Supplied to authors (based on authors' rights management selection;
+%% see authors.acm.org) by publisher for camera-ready submission;
+%% use 'none' for review submission.
+% \setcopyright{acmlicensed}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+\setcopyright{rightsretained}
+\acmPrice{}
+\acmDOI{10.1145/3211332.3211335}
+\acmYear{2018}
+\copyrightyear{2018}
+\acmISBN{978-1-4503-5803-3/18/06}
+\acmConference[LCTES'18]{19th ACM SIGPLAN/SIGBED Conference on Languages, Compilers, and Tools for Embedded Systems}{June 19--20, 2018}{Philadelphia, PA, USA}
+
+%% Author with single affiliation.
+\author{James Devine}
+\orcid{0000-0002-9617-7446}
+\affiliation{
+  \institution{Lancaster University, UK}            %% \institution is required
+}
+\email{j.devine@lancaster.ac.uk}
+
+\author{Joe Finney}
+\affiliation{
+  \institution{Lancaster University, UK}            %% \institution is required
+}
+\email{j.finney@lancaster.ac.uk}
+
+\author{Peli de Halleux}
+\affiliation{
+  \institution{Microsoft, USA}            %% \institution is required
+}
+\email{jhalleux@microsoft.com}
+
+\author{Micha\l\ Moskal}
+\affiliation{
+  \institution{Microsoft, USA}            %% \institution is required
+}
+\email{michal.moskal@microsoft.com}
+
+\author{Thomas Ball}
+\affiliation{
+  \institution{Microsoft, USA}            %% \institution is required
+}
+\email{tball@microsoft.com}
+
+\author{Steve Hodges}
+\affiliation{
+  \institution{Microsoft, UK}            %% \institution is required
+}
+\email{steve.hodges@microsoft.com}
+
+\input{abstract}
+
+\begin{CCSXML}
+  <ccs2012>
+  <concept>
+  <concept_id>10011007.10010940.10010971.10010564</concept_id>
+  <concept_desc>Software and its engineering~Embedded software</concept_desc>
+  <concept_significance>500</concept_significance>
+  </concept>
+  <concept>
+  <concept_id>10011007.10011006.10011041.10011048</concept_id>
+  <concept_desc>Software and its engineering~Runtime environments</concept_desc>
+  <concept_significance>300</concept_significance>
+  </concept>
+  <concept>
+  <concept_id>10011007.10011006.10011066.10011069</concept_id>
+  <concept_desc>Software and its engineering~Integrated and visual development environments</concept_desc>
+  <concept_significance>300</concept_significance>
+  </concept>
+  </ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Software and its engineering~Embedded software}
+\ccsdesc[300]{Software and its engineering~Runtime environments}
+\ccsdesc[300]{Software and its engineering~Integrated and visual development environments}
+
+%% Keywords
+%% comma separated list
+\keywords{education, classroom, embedded systems}
+
+\maketitle
+
+\renewcommand{\shortauthors}{J. Devine, J. Finney, P. Halleux, M. Moskal, T. Ball, S. Hodges}
+
+\input{intro}
+\input{makecode}
+\input{codal}
+\input{uf2}
+\input{eval}
+\input{related}
+\input{conclude}
+
+\section*{Acknowledgements}
+
+The authors would like to thank the members of the MakeCode team for their many contributions to the success of the platform: Abhijith Chatra, Sam El-Husseini, Caitlin Hennessy, Guillaume Jenkins, Richard Knoll, Galen Nickel, Jacqueline Russell, and Kesavan Shanmugam.
+
+\input{appendix}
+
+%% Bibliography
+\balance
+\bibliography{paper}
+
+\end{document}
